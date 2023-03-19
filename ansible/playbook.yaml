@@ -1,0 +1,47 @@
+---
+- hosts: all 
+  become: true
+  become_user: root
+  tasks:
+  - name: Install Java
+    apt:
+      name: openjdk-11-jdk
+      update_cache: true
+
+  - name: Add Jenkins repository key
+    apt_key:
+      url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+
+  - name: Add Jenkins repository
+    apt_repository:
+      repo: deb https://pkg.jenkins.io/debian-stable binary/
+      state: present
+
+  - name: Install Jenkins
+    apt:
+      name: jenkins
+      update_cache: true
+
+  - name: Start Jenkins service
+    service:
+      name: jenkins
+      state: started
+
+  - name: Install Python PIP
+    apt: pkg=python3-pip state=latest
+
+  - name: Install AWS CLI
+    pip: name=awscli state=latest
+
+  - name: AWS | Assures dir exists
+    file: path="~/.aws" state=directory
+
+  - name: add kubeconfig
+    command: aws eks --region us-east-1 update-kubeconfig --name demo
+
+  - name: Restart Jenkins service
+    service:
+      name: jenkins
+      state: restarted
+
+  
