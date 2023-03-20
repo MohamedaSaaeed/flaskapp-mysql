@@ -1,4 +1,4 @@
-# DevOps BootCamp Capstone Project
+## DevOps BootCamp Capstone Project
 
 This Capstone project is a Project for building, pushing, and deploying a flask app with MySQL database on ECR and EKS.
 ## Author
@@ -40,40 +40,18 @@ chmod 400 tfkey.pem
 ansible-playbook -i 'instance public ip', -u ubuntu --private-key ./tfkey.pem playbook.yaml
 ``` 
 ### 3- Manually, 
+* Connect to the EC2 instance to unlock Jenkins 
+```bash
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
 * Install the necessary plugins and create an account.  
-* Create my pipeline.
+* Create my pipeline called [FlaskApp-MySQL-Pipeline].
 * From Manage plugins, install Cloud AWS credentials.
 * From Manage credentials, add AWS credentials with access-key and secret key called [Terraform]
-* Configure the pipeline by adding Github URL link.
-* Build the pipeline.
-
-
-
-
-
- 
-## Usage
-
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+<img src=https://user-images.githubusercontent.com/116665263/226451947-67197967-a76c-4322-a373-ad945314ea5d.PNG>
+* Configure the pipeline by choose Github project by adding URL link.
+<img src=https://user-images.githubusercontent.com/116665263/226452679-acfc5213-eb8a-4444-951a-ec6ae04beb48.PNG>
+* Build the pipeline script from SCM.
+<img src=https://user-images.githubusercontent.com/116665263/226451426-fbb3b8d8-1b11-42bf-bc5b-6686b0720855.PNG>
+* Get the DNS name of load balancer and put it in the browser
+<img src=https://user-images.githubusercontent.com/116665263/226451013-c5d4c91c-6000-4fc5-a686-437678ddfeb1.PNG>
