@@ -20,22 +20,22 @@ spec:
         image: 309705700864.dkr.ecr.us-east-1.amazonaws.com/sql_ecr:latest
       env:
         - name: MYSQL_DATABASE_USER
-          valuesFrom:
+          valueFrom:
             secretKeyRef:
               name: secrets
               key: MYSQL_DATABASE_USER
         - name: MYSQL_DATABASE_PASSWORD
-          valuesFrom:
+          valueFrom:
             secretKeyRef:
               name: secrets
               key: MYSQL_DATABASE_PASSWORD
         - name: MYSQL_DATABASE_DB
-          valuesFrom:
+          valueFrom:
             configMapKeyRef:
               name: app-config
               key: MYSQL_DATABASE_DB
         - name: MYSQL_DATABASE_HOST
-          valuesFrom:
+          valueFrom:
             configMapKeyRef:
               name: app-config
               key: MYSQL_DATABASE_HOST
