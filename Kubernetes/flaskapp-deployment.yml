@@ -21,10 +21,30 @@ spec:
           ports:
             - containerPort: 5002
           env:
-            - name: MYSQL_DATABASE
-              value: 'db'
-            - name: MYSQL_ROOT_PASSWORD
-              value: 'root'
+            - name: MYSQL_DATABASE_USER
+              valuesFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: MYSQL_DATABASE_USER
+            - name: MYSQL_DATABASE_PASSWORD
+              valuesFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: MYSQL_DATABASE_PASSWORD
+            - name: MYSQL_DATABASE_DB
+              valuesFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: MYSQL_DATABASE_DB
+            - name: MYSQL_DATABASE_HOST
+              valuesFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: MYSQL_DATABASE_HOST
+            # - name: MYSQL_DATABASE
+            #   value: 'db'
+            # - name: MYSQL_ROOT_PASSWORD
+            #   value: 'root'
 
 
         #       valueFrom:
