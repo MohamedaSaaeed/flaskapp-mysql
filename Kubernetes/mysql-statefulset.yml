@@ -20,10 +20,11 @@ spec:
         image: 309705700864.dkr.ecr.us-east-1.amazonaws.com/sql_ecr:latest
       env:
       - name: MYSQL_ROOT_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: flaskapi-secrets
-            key: db_root_password
+        value: 'root'
+        # valueFrom:
+        #   secretKeyRef:
+        #     name: flaskapi-secrets
+        #     key: db_root_password
       ports:
       - containerPort: 3306
         name: db-container
