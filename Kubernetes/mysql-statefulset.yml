@@ -65,4 +65,4 @@ spec:
     name: mysql
   selector:
     app: db
-  type: NodePort
+  type: ClusterIP
