@@ -3,6 +3,7 @@
 * Once the infrastructure is set up, Ansible is used to install and configure Jenkins on an EC2 instance. Jenkins is then used to create a pipeline for the Flask application, which includes building the application, testing it, and deploying it to the EKS cluster using Kubernetes.
 * The application's code is stored in a Git repository, and Jenkins is configured to pullthe code from the repository and run the pipeline automatically whenever there is a new commit.
 <img src=https://user-images.githubusercontent.com/116665263/227786542-2b8fc3a4-b8d9-4348-97c8-a29d3a1263f3.png>
+
 ## Author
 ##### Name: Mohamed Ahmed Saaeed
 ##### Email: mohamedasaaeed@gmail.com
